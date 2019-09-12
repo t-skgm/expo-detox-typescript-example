@@ -1,0 +1,41 @@
+name: E2E test on CI
+
+on:
+  push:
+    branches:
+    - develop
+
+jobs:
+  e2e:
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install global pkgs
+        run: |
+          yarn global add detox-cli expo-cli
+          brew tap wix/brew
+          brew install applesimutils
+      - name: Install deps
+        run: |
+          yarn install
+      - name: Download ExpoClient binary
+        run: |
+          yarn dl_expo_bins
+      - name: Run E2E Tests
+        run: |
+          # start packager in background
+          yarn start >/dev/null &
+          PID=$(ps $! | tail -1 | awk '{print $1}')
+          # run e2e test
+          yarn test:e2e
+          # kill packager
+          kill $PID
+      - uses: actions/upload-artifact@master
+        if: always()
+        with:
+          name: e2e-artifacts
+          path: ./artifacts

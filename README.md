@@ -1,12 +1,14 @@
-# expo-detox-typescript-example  
+# expo-detox-typescript-example
 
 Sample React-Native application with e2e tests using:
-* Expo SDK v33
+* Expo SDK v34
 * [detox](https://github.com/wix/detox) 12.3.0
 * [detox-expo-helpers](https://github.com/expo/detox-expo-helpers)
 * [expo-detox-hooks](https://github.com/expo/detox-tools)
 * jest
 * typescript
+* Run on GitHub Actions
+  * Taking screenshots on each tests and saving them as artifacts
 
 ## Demo
 <img src="https://raw.githubusercontent.com/yaron1m/expo-detox-typescript-example/master/example.gif"/>
