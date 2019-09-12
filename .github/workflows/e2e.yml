@@ -1,9 +1,9 @@
 name: E2E test on CI
 
 on:
-  push:
+  pull_request:
     branches:
-    - develop
+    - master
 
 jobs:
   e2e:
