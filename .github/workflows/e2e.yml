@@ -1,10 +1,9 @@
 name: E2E test on CI
 
-on: [push]
-
-# push:
-#   branches:
-#   - master
+on:
+  push:
+    branches:
+    - develop
 
 jobs:
   e2e:
