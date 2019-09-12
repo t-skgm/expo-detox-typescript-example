@@ -1,9 +1,16 @@
-import {by, element, expect} from 'detox';
+import {by, element, expect, device} from 'detox';
 import {reloadApp} from "detox-expo-helpers";
 
 describe('Authentication tests', () => {
     beforeEach(async () => {
         await reloadApp();
+        // @ts-ignore: takeScreenshot
+        await device.takeScreenshot('Authentication tests/before each');
+    });
+
+    afterEach(async () => {
+        // @ts-ignore: takeScreenshot
+        await device.takeScreenshot('Authentication tests/after each');
     });
 
     it('should change the text when buttons are pressed', async () => {

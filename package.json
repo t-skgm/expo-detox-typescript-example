@@ -6,7 +6,9 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "e2e": "detox test --configuration ios.sim",
+    "typecheck": "tsc -p . --noEmit",
+    "test:unit": "echo 'do test'",
+    "test:e2e": "detox test --configuration ios.sim",
     "dl_expo_bins": "./scripts/dl_expo_bins"
   },
   "dependencies": {
